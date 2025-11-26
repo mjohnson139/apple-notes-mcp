@@ -4,16 +4,16 @@ Your Apple Notes MCP server has been successfully packaged as a Desktop Extensio
 
 ## Package Information
 
-- **File**: `apple-notes-1.0.0.mcpb`
+- **File**: `apple-notes-1.1.0.mcpb`
 - **Size**: 5.0 MB (packaged), 17.8 MB (unpacked)
 - **Platform**: macOS only (darwin)
-- **Total Files**: 3,410
+- **Total Files**: 3,413
 
 ## Installation Methods
 
 ### Method 1: Double-Click Installation (Easiest)
 
-1. Locate the `apple-notes-1.0.0.mcpb` file
+1. Locate the `apple-notes-1.1.0.mcpb` file
 2. Double-click it
 3. Claude Desktop will automatically open and show an installation dialog
 4. Click "Install" to add the extension
@@ -24,20 +24,26 @@ Your Apple Notes MCP server has been successfully packaged as a Desktop Extensio
 1. Open Claude Desktop
 2. Go to **Settings** → **Extensions**
 3. Click **Install Extension**
-4. Navigate to and select `apple-notes-1.0.0.mcpb`
+4. Navigate to and select `apple-notes-1.1.0.mcpb`
 5. Click **Open** to install
 
-### Method 3: Claude Code Installation
+### Method 3: Claude Code CLI Installation
 
-For Claude Code (CLI), you can install the extension using:
+**Note:** Claude Code CLI does not use `.mcpb` files. Install the MCP server directly:
 
 ```bash
-# Simply double-click the .mcpb file
-# Claude Code will handle the installation automatically
+# Clone or download this repository first, then:
+cd /path/to/apple-notes-mcp
 
-# Alternatively, you can install via command line (if supported)
-# The exact installation method for Claude Code may vary
+# Add the MCP server to Claude Code
+claude mcp add --transport stdio apple-notes node $(pwd)/mcp-server.js
+
+# Verify installation
+claude mcp list
+# You should see: apple-notes: node /path/to/mcp-server.js - ✓ Connected
 ```
+
+Replace `/path/to/apple-notes-mcp` with the actual path where you cloned this repository.
 
 ## Verifying Installation
 
@@ -95,7 +101,7 @@ To remove the extension:
 
 To share this extension with others:
 
-1. Send them the `apple-notes-1.0.0.mcpb` file
+1. Send them the `apple-notes-1.1.0.mcpb` file
 2. They can install it using any of the methods above
 3. Note: Recipients must be running macOS (the extension won't work on Windows/Linux)
 
