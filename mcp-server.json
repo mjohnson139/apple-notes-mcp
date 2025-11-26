@@ -1,0 +1,88 @@
+{
+  "name": "apple-notes",
+  "version": "1.0.0",
+  "description": "Fast Apple Notes CLI tools exposed as MCP",
+  "tools": [
+    {
+      "name": "create_note",
+      "description": "Create a new note in Apple Notes with HTML formatting",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the note"
+          },
+          "folder": {
+            "type": "string",
+            "description": "The folder to create the note in (default: Notes)",
+            "default": "Notes"
+          },
+          "content": {
+            "type": "string",
+            "description": "HTML content for the note body"
+          }
+        },
+        "required": ["title", "content"]
+      }
+    },
+    {
+      "name": "read_note",
+      "description": "Read a note's contents by searching for its title",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "type": "string",
+            "description": "Search term to find the note by name"
+          },
+          "format": {
+            "type": "string",
+            "description": "Output format: 'text' or 'html'",
+            "enum": ["text", "html"],
+            "default": "text"
+          }
+        },
+        "required": ["search"]
+      }
+    },
+    {
+      "name": "list_notes",
+      "description": "List recent notes or notes in a specific folder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "folder": {
+            "type": "string",
+            "description": "Optional folder name to filter by"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum number of notes to return (default: 10)",
+            "default": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "search_notes",
+      "description": "Search for notes by name or content",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search term"
+          },
+          "mode": {
+            "type": "string",
+            "description": "Search mode: 'name', 'body', or 'both'",
+            "enum": ["name", "body", "both"],
+            "default": "name"
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}
