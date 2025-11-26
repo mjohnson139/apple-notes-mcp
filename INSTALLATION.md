@@ -55,6 +55,8 @@ After installation, you should see the Apple Notes extension in your Claude clie
 - `mcp__apple-notes__search_notes` - Search notes by name or content
 - `mcp__apple-notes__delete_note` - Delete notes (moves to Recently Deleted)
 - `mcp__apple-notes__get_note_url` - Get unique note IDs
+- `mcp__apple-notes__list_folders` - List all folders with metadata
+- `mcp__apple-notes__search_folders` - Search folders by name
 
 ## Testing the Extension
 
